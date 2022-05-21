@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">retrofit</string>
+    <string name="title_join">회원가입</string>
+    <string name="content_no_match_password">비밀번호가 일치하지 않습니다.</string>
+    <string name="title_id">아이디</string>
+    <string name="title_password">비밀번호</string>
+    <string name="title_match_password">비밀번호 확인</string>
+    <string name="content_next">다음</string>
+    <string name="content_password_error">비밀번호는 4자 이상 적어주세요.</string>
+
+    <string name="content_id_hint">threefun@threefun.com</string>
+    <string name="content_password_hint">4자 이상 작성해주세요.</string>
+    <string name="content_match_password_hint">****</string>
+    <string name="content_join_complete">가입완료</string>
+    <string name="title_name">이름</string>
+    <string name="content_hint_name">지노</string>
+    <string name="title_login">로그인</string>
+    <string name="content_id_error">가입 되어있지 않는 아이디입니다.</string>
+
+    <string name="content_no_account">앗, 계정이 없으신가요?</string>
+    <string name="content_do_join"><u>회원가입하기</u></string>
+</resources>

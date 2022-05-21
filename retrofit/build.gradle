@@ -1,0 +1,18 @@
+buildscript {
+    ext.kotlin_version = '1.5.0'
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.35"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
