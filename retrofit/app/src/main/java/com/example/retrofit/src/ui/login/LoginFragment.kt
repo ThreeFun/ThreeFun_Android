@@ -67,7 +67,7 @@ class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_log
                                     //바로 홈화면으로
                                     Log.d("login", "성공")
                                 } else {
-                                    Log.d("login", "실패${result.body()?.code}")
+                                    Log.d("login", "실패${result.body()?.message}")
                                 }
                             } else { //여기가 실패
                                 Log.d("login", "실패${result.body()?.code}")

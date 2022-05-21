@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Retrofit"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.example.retrofit.src.ui.MainActivity"
+            android:name="com.example.retrofit.src.ui.SignActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

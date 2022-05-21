@@ -1,5 +1,6 @@
 package com.example.retrofit.src.ui.join
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -9,6 +10,7 @@ import com.example.retrofit.R
 import com.example.retrofit.databinding.FragmentJoinNameBinding
 import com.example.retrofit.util.network.SignNetworkUtil
 import com.example.retrofit.application.CommonFragment
+import com.example.retrofit.util.TokenManager
 import com.example.retrofit.viewModel.SignUpViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,14 +61,13 @@ class JoinNameFragment : CommonFragment<FragmentJoinNameBinding>(R.layout.fragme
                         ).execute()
                         //여기가 성공
                         if (result.code() == 200) {
-                            if(result.body()?.code == 1000){
-                                Log.d("join","성공${result.body()?.code}")
-                            }
-                            else{
-                                Log.d("join","실패${result.body()?.code}")
+                            val token = result.body()?.result?.jwt
+                            if (token != null) {
+                                TokenManager(requireContext()).setToken(token)
+                                startActivity(Intent())
                             }
                         } else { //여기가 실패
-                            Log.d("join","실패${result.body()?.code}")
+                            Log.d("join","아에 실패${result.body()?.code}")
                         }
                     }
                 }

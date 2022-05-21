@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object SignNetworkUtil {
     val api : SignApiService by lazy { apiInit() }
     private var testRetrofit : Retrofit? = null
-    private const val TEST_ADDR = "https://43.200.25.245:9000"
+    private const val TEST_ADDR = "http://43.200.25.245:9000"
 
     private fun apiInit() : SignApiService {
         val testRetrofit = testRetrofit
