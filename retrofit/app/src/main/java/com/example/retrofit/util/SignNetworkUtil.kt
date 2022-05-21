@@ -19,6 +19,5 @@ object SignNetworkUtil {
                 .also { this.testRetrofit = it }
         }
         return retrofit.create(SignApiService::class.java)
-
     }
 }

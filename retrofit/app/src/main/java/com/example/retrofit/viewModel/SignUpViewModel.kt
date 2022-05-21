@@ -11,12 +11,11 @@ class SignUpViewModel : ViewModel() {
 
     fun makeSignUpModel(): SignRequestModel?{
         //region은 일단 납둔다.
-        if(email.isNotBlank() && nickname.isNotBlank() && password.isNotBlank()){
-            return SignRequestModel(nickname, email, password, region)
-        }
-        else{
+        return if(email.isNotBlank() && nickname.isNotBlank() && password.isNotBlank()){
+            SignRequestModel(nickname, email, password, region)
+        } else{
             //오류처리
-            return null
+            null
         }
     }
 }
