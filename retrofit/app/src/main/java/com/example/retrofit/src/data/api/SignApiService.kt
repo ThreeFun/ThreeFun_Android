@@ -17,7 +17,7 @@ interface SignApiService {
         @Body body: SignRequestModel
     ): Call<SignResponseModel>
 
-    @POST("users/login")
+    @POST("/users/login")
     fun login(
         @Body body : LoginRequestModel
     ): Call<LoginResponseModel>

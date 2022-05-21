@@ -8,6 +8,7 @@ class LoginViewModel : ViewModel() {
     var id: String = ""
     var password: String = ""
 
+
     fun makeLoginModel(): LoginRequestModel? {
         //region은 일단 납둔다.
         return if (id.isNotBlank() && password.isNotBlank()) {

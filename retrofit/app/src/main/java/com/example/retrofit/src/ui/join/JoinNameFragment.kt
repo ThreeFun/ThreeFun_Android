@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.retrofit.R
 import com.example.retrofit.databinding.FragmentJoinNameBinding
-import com.example.retrofit.src.data.models.sign.SignRequestModel
-import com.example.retrofit.util.SignNetworkUtil
+import com.example.retrofit.util.network.SignNetworkUtil
 import com.example.retrofit.application.CommonFragment
 import com.example.retrofit.viewModel.SignUpViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -62,12 +60,13 @@ class JoinNameFragment : CommonFragment<FragmentJoinNameBinding>(R.layout.fragme
                         //여기가 성공
                         if (result.code() == 200) {
                             if(result.body()?.code == 1000){
-                                //바로 홈화면으로
+                                Log.d("join","성공${result.body()?.code}")
+                            }
+                            else{
+                                Log.d("join","실패${result.body()?.code}")
                             }
                         } else { //여기가 실패
-                            when (result.code()) {
-
-                            }
+                            Log.d("join","실패${result.body()?.code}")
                         }
                     }
                 }
