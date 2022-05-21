@@ -26,6 +26,7 @@
         </activity>
 
         <activity android:name=".src.ui.main.MainActivity"/>
+        <activity android:name=".legacy.SubActivity"/>
     </application>
 
 </manifest>

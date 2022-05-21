@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
 import com.example.retrofit.src.data.models.team.list.TeamNearByListResponseModel
+import com.example.retrofit.util.Token
 import com.example.retrofit.util.TokenManager
 import com.example.retrofit.util.network.MainNetworkUtil
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +25,7 @@ class HomeViewModel : ViewModel() {
             val result = MainNetworkUtil.api.getMainList(TokenManager(context).getIdx()).execute()
             if (result.isSuccessful) {
                 //성공
-                nearByFunList.addAll(result.body()?.RegionList!!)
+//                nearByFunList.addAll(result.body()?.result?.regionList!!)
             } else {
                 //실패
             }

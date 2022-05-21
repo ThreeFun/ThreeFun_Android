@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.example.retrofit.R
 import com.example.retrofit.application.CommonFragment
 import com.example.retrofit.databinding.FragmentLoginBinding
+import com.example.retrofit.legacy.SubActivity
 import com.example.retrofit.src.data.models.ErrorResponse
 import com.example.retrofit.src.ui.main.MainActivity
 import com.example.retrofit.util.TokenManager
@@ -67,13 +68,6 @@ class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_log
                                 loginViewModel.makeLoginModel()!!
                             ).execute()
                             //여기가 성공
-                            if (result.isSuccessful) {
-                                Intent(requireContext(), MainActivity::class.java).apply {
-                                    startActivity(this)
-                                }
-                            } else {
-                                Log.d("login", "실패${SignNetworkUtil.getErrorResponse(result.errorBody()!!)}")
-                            }
                             if (result.code() == 200) {
                                 if (result.body()?.code == 200) {
                                     //바로 홈화면으로
@@ -82,7 +76,7 @@ class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_log
                                     if (token != null) {
                                         TokenManager(requireContext()).setToken(token)
                                         TokenManager(requireContext()).setIdx(idx!!)
-                                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                                        startActivity(Intent(requireContext(), SubActivity::class.java))
                                     }
                                 } else {
                                     Log.d("login", "200 실패${result.body()?.message}")
