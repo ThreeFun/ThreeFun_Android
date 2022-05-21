@@ -1,16 +1,15 @@
-package com.example.retrofit.src.ui
+package com.example.retrofit.src.ui.sign
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigator
 import com.example.retrofit.R
 import com.example.retrofit.databinding.ActivityMainBinding
-import com.example.retrofit.databinding.FragmentJoinBinding
-import com.example.retrofit.src.ui.login.LoginFragment
+import com.example.retrofit.databinding.ActivitySignBinding
+import com.example.retrofit.src.ui.sign.login.LoginFragment
 
 //ui 구현
 class SignActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class SignActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding =
-            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+            DataBindingUtil.setContentView<ActivitySignBinding>(this, R.layout.activity_sign)
 
     }
 

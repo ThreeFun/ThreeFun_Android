@@ -14,4 +14,6 @@
     <color name="bittersweet">#FF7068</color>
     <color name="trans_100">#00000000</color>
     <color name="rock_blue">#9AA4B3</color>
+    <color name="ghost_white">#F2F2F5</color>
+    <color name="bunker">#23272C</color>
 </resources>

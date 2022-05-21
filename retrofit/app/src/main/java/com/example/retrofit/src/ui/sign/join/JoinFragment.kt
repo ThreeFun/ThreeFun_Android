@@ -1,4 +1,4 @@
-package com.example.retrofit.src.ui.join
+package com.example.retrofit.src.ui.sign.join
 
 import android.os.Bundle
 import android.text.InputType

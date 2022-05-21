@@ -1,4 +1,4 @@
-package com.example.retrofit.src.ui.join
+package com.example.retrofit.src.ui.sign.join
 
 import android.content.Intent
 import android.os.Bundle

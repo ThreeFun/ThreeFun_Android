@@ -19,4 +19,9 @@
 
     <string name="content_no_account">앗, 계정이 없으신가요?</string>
     <string name="content_do_join"><u>회원가입하기</u></string>
+
+    <string name="title_around_list">주변에서 일어나는 FUN things</string>
+    <string name="title_following">팔로잉</string>
+    <string name="title_new_list">최신 FUN things</string>
+    <string name="content_new_game">새 게임</string>
 </resources>
