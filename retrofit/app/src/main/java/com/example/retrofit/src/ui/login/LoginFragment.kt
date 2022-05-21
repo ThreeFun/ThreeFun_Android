@@ -49,7 +49,7 @@ class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_log
                 //로그인
             }
             binding.tvDoJoin -> {
-                //회원가입 화면
+                navigate(LoginFragmentDirections.actionLoginFragmentToFragmentSign())
             }
         }
     }

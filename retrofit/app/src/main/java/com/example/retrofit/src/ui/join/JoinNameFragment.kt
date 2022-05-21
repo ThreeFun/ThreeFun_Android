@@ -61,7 +61,9 @@ class JoinNameFragment : CommonFragment<FragmentJoinNameBinding>(R.layout.fragme
                         ).execute()
                         //여기가 성공
                         if (result.code() == 200) {
-
+                            if(result.body()?.code == 1000){
+                                //바로 홈화면으로
+                            }
                         } else { //여기가 실패
                             when (result.code()) {
 
