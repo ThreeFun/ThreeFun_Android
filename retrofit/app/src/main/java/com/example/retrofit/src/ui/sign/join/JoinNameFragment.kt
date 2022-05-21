@@ -10,11 +10,31 @@ import com.example.retrofit.R
 import com.example.retrofit.databinding.FragmentJoinNameBinding
 import com.example.retrofit.util.network.SignNetworkUtil
 import com.example.retrofit.application.CommonFragment
+import com.example.retrofit.src.ui.main.MainActivity
 import com.example.retrofit.util.TokenManager
 import com.example.retrofit.viewModel.SignUpViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+enum class RegionCategory(index : Int, region : String) {
+    Seoul(1, "서울"),
+    Gyeonggi(2, "경기"),
+    Incheon(3, "인천"),
+    Gangwon(4, "강원"),
+    Daejeon(5,"대전"),
+    Chungbuk(6,"충북"),
+    Chungnam(7, "충남"),
+    Deagu(8, "대구"),
+    Gyeongnam(9, "경남"),
+    Gyeongbuk(10,"경북"),
+    Busan(11, "부산"),
+    Ulsan(12,"울산"),
+    Gwangju(13,"광주"),
+    Jeonnam(14,"전남"),
+    Jeonbuk(15, "전북"),
+    Sejong(16, "세종")
+}
 
 class JoinNameFragment : CommonFragment<FragmentJoinNameBinding>(R.layout.fragment_join_name),
     View.OnClickListener {
@@ -59,12 +79,13 @@ class JoinNameFragment : CommonFragment<FragmentJoinNameBinding>(R.layout.fragme
                         val result = SignNetworkUtil.api.signUp(
                             signUpViewModel.makeSignUpModel()!!
                         ).execute()
-                        //여기가 성공
                         if (result.code() == 200) {
                             val token = result.body()?.result?.jwt
+                            val idx = result.body()?.result?.userIdx
                             if (token != null) {
                                 TokenManager(requireContext()).setToken(token)
-                                startActivity(Intent())
+                                TokenManager(requireContext()).setIdx(idx!!)
+                                startActivity(Intent(requireContext(), MainActivity::class.java))
                             }
                         } else { //여기가 실패
                             Log.d("join","아에 실패${result.body()?.code}")

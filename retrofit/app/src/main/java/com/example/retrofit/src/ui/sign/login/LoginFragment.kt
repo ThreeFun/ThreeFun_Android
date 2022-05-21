@@ -1,5 +1,6 @@
 package com.example.retrofit.src.ui.sign.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -8,11 +9,15 @@ import androidx.fragment.app.viewModels
 import com.example.retrofit.R
 import com.example.retrofit.application.CommonFragment
 import com.example.retrofit.databinding.FragmentLoginBinding
+import com.example.retrofit.src.data.models.ErrorResponse
+import com.example.retrofit.src.ui.main.MainActivity
+import com.example.retrofit.util.TokenManager
 import com.example.retrofit.util.network.SignNetworkUtil
 import com.example.retrofit.viewModel.LoginViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 
 class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_login),
     View.OnClickListener {
@@ -62,12 +67,25 @@ class LoginFragment : CommonFragment<FragmentLoginBinding>(R.layout.fragment_log
                                 loginViewModel.makeLoginModel()!!
                             ).execute()
                             //여기가 성공
+                            if (result.isSuccessful) {
+                                Intent(requireContext(), MainActivity::class.java).apply {
+                                    startActivity(this)
+                                }
+                            } else {
+                                Log.d("login", "실패${SignNetworkUtil.getErrorResponse(result.errorBody()!!)}")
+                            }
                             if (result.code() == 200) {
-                                if (result.body()?.code == 1000) {
+                                if (result.body()?.code == 200) {
                                     //바로 홈화면으로
-                                    Log.d("login", "성공")
+                                    val token = result.body()?.result?.jwt
+                                    val idx = result.body()?.result?.userIdx
+                                    if (token != null) {
+                                        TokenManager(requireContext()).setToken(token)
+                                        TokenManager(requireContext()).setIdx(idx!!)
+                                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                                    }
                                 } else {
-                                    Log.d("login", "실패${result.body()?.message}")
+                                    Log.d("login", "200 실패${result.body()?.message}")
                                 }
                             } else { //여기가 실패
                                 Log.d("login", "실패${result.body()?.code}")

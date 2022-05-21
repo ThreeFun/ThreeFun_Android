@@ -3,8 +3,10 @@ package com.example.retrofit.util.network
 import com.example.retrofit.App
 import com.example.retrofit.src.data.api.MainApiService
 import com.example.retrofit.src.data.api.SignApiService
+import com.example.retrofit.src.data.models.ErrorResponse
 import com.example.retrofit.util.TokenManager
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,7 +24,7 @@ object MainNetworkUtil {
     }
     val api : MainApiService by lazy { apiInit() }
     private var testRetrofit : Retrofit? = null
-    private const val TEST_ADDR = "https://43.200.25.245:9000"
+    private const val TEST_ADDR = "http://43.200.25.245:9000"
 
     private fun apiInit() : MainApiService {
         val testRetrofit = testRetrofit
@@ -36,4 +38,6 @@ object MainNetworkUtil {
         }
         return retrofit.create(MainApiService::class.java)
     }
+
+
 }

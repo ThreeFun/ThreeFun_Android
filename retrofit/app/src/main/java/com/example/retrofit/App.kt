@@ -9,10 +9,12 @@ import android.os.Bundle
 
 class App : Application() {
 
+    init {
+        instance = this
+    }
+
     override fun onCreate() {
         super.onCreate()
-
-        instance = this
 
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             @SuppressLint("SourceLockedOrientationActivity")

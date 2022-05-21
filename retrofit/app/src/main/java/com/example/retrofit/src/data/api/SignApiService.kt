@@ -5,10 +5,7 @@ import com.example.retrofit.src.data.models.login.LoginResponseModel
 import com.example.retrofit.src.data.models.sign.SignRequestModel
 import com.example.retrofit.src.data.models.sign.SignResponseModel
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 //service 구현
 interface SignApiService {
@@ -17,7 +14,8 @@ interface SignApiService {
         @Body body: SignRequestModel
     ): Call<SignResponseModel>
 
-    @POST("/users/login")
+    @Headers("Content-Type: application/json")
+    @POST("/users/logIn")
     fun login(
         @Body body : LoginRequestModel
     ): Call<LoginResponseModel>

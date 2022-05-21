@@ -19,4 +19,3 @@ data class TeamCreateRequestModel(
     @SerializedName("categoryIdx") val categoryIndex: Int,
     @SerializedName("images") val images: List<String> = emptyList()
 )
-

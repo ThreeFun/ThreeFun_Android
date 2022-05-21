@@ -1,6 +1,8 @@
 package com.example.retrofit.util.network
 
 import com.example.retrofit.src.data.api.SignApiService
+import com.example.retrofit.src.data.models.ErrorResponse
+import okhttp3.ResponseBody
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -19,5 +21,11 @@ object SignNetworkUtil {
                 .also { SignNetworkUtil.testRetrofit = it }
         }
         return retrofit.create(SignApiService::class.java)
+    }
+    fun getErrorResponse(errorBody: ResponseBody): ErrorResponse? {
+        return SignNetworkUtil.testRetrofit?.responseBodyConverter<ErrorResponse>(
+            ErrorResponse::class.java,
+            ErrorResponse::class.java.annotations
+        )?.convert(errorBody)
     }
 }

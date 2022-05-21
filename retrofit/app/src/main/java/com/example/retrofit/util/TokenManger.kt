@@ -8,6 +8,7 @@ import com.example.retrofit.BuildConfig
 
 
 const val Token = "Token"
+const val Idx = "Idx"
 
 class TokenManager(context: Context) {
     private val prefs: SharedPreferences by lazy {
@@ -23,6 +24,14 @@ class TokenManager(context: Context) {
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
+    }
+
+    fun getIdx():Int{
+        return prefs.getInt(Idx, 0)
+    }
+
+    fun setIdx(idx:Int){
+        prefs.edit().putInt(Idx,idx).apply()
     }
 
     fun getToken(): String {
