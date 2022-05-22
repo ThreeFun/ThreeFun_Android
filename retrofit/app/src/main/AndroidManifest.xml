@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Retrofit"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.example.retrofit.src.ui.sign.SignActivity"
+            android:name="com.example.retrofit.src.ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".src.ui.sign.SignActivity"/>
         <activity android:name=".src.ui.main.MainActivity"/>
         <activity android:name=".legacy.SubActivity"/>
     </application>

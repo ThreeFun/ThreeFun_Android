@@ -25,6 +25,7 @@ class SubActivity : BaseActivity<ActivtitySubBinding>(ActivtitySubBinding::infla
             ) {
                 binding.rvAroundList.layoutManager =
                     LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+
                 binding.rvAroundList.adapter =
                     NearbyAdapter(applicationContext, response.body()?.result?.get(0)?.regionList!!)
 
